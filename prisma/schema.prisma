@@ -9,8 +9,11 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  // TODO: .envファイルのDATABASE_URLを使うとエラーが出てしまうので一旦直接DBを指定。原因解明する
+  // url      = "postgres://postgres.izratwvlfxbljhqvzgwo:TRL5AnsRpy51tntE@aws-0-ap-northeast-1.pooler.supabase.com:5432/postgres"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL")
 }
 
 model User {
